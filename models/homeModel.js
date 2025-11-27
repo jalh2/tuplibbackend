@@ -10,6 +10,11 @@ const homeSchema = new mongoose.Schema({
     overlayColor: { type: String, default: '' },
     backgroundImage: { type: String, default: '' }
   },
+  contract: {
+    title: { type: String, default: '' },
+    description: { type: String, default: '' },
+    image: { type: String, default: '' }
+  },
   snippets: {
     about: { type: String, default: '' },
     news: { type: String, default: '' },

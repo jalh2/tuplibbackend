@@ -33,6 +33,11 @@ const updateHome = async (req, res) => {
         doc.hero.overlayColor = payload.hero.overlayColor ?? doc.hero.overlayColor
         doc.hero.backgroundImage = payload.hero.backgroundImage ?? doc.hero.backgroundImage
       }
+      if (payload.contract) {
+        doc.contract.title = payload.contract.title ?? doc.contract.title
+        doc.contract.description = payload.contract.description ?? doc.contract.description
+        doc.contract.image = payload.contract.image ?? doc.contract.image
+      }
       if (payload.snippets) {
         doc.snippets.about = payload.snippets.about ?? doc.snippets.about
         doc.snippets.news = payload.snippets.news ?? doc.snippets.news

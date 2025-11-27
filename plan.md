@@ -252,3 +252,25 @@
 - [x] **Lazy Loading:** Verify `react-lazy-load-image-component` usage on all images.
 - [x] **Loading States:** Ensure `react-loader-spinner` appears during network fetches (if no cache).
 - [x] **Responsive:** Check mobile views.
+
+### Phase 9: New Features (Membership, Road Construction, Updates)
+- [x] **Home Page Contract Section:**
+  - [x] Backend: Update Home Model & Controller.
+  - [x] Frontend: Add Contract Section to Home.js.
+  - [x] CMS: Add Contract editing to EditHome.js.
+- [x] **Road Construction:**
+  - [x] Backend: Create Models (Header, Post), Controller, Routes.
+  - [x] Frontend: Create RoadConstruction.js page.
+  - [x] CMS: Create ManageRoadConstruction.js.
+- [x] **Membership:**
+  - [x] Backend: Create Models (Header, Member), Controller, Routes.
+  - [x] Frontend: Create Membership.js page with form.
+  - [x] CMS: Create ManageMembership.js.
+- [x] **Constitution PDF Support:**
+  - [x] Backend: Update Constitution Model (add pdf field).
+  - [x] Frontend: Update Constitution.js to view PDFs.
+  - [x] CMS: Update EditConstitution.js to upload PDFs.
+- [x] **Navigation:**
+  - [x] Frontend: Add new pages to Header (Dropdown) and Mobile Menu.
+  - [x] Frontend: Register Routes in App.js.
+  - [x] CMS: Update Dashboard.js with new links.
