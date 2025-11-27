@@ -33,9 +33,9 @@ const updateHeader = async (req, res) => {
 // Members
 const createMember = async (req, res) => {
   try {
-    const { name, phone, address, email, occupation } = req.body
+    const { name, phone, address, email, occupation, idNumber, district, sex, age, photo } = req.body
     if (!name || !phone) return res.status(400).json({ message: 'Name and Phone are required' })
-    const doc = await MemberSubmission.create({ name, phone, address, email, occupation })
+    const doc = await MemberSubmission.create({ name, phone, address, email, occupation, idNumber, district, sex, age, photo })
     res.status(201).json(doc)
   } catch {
     res.status(500).json({ message: 'Server error' })
