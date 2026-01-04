@@ -7,7 +7,8 @@ const createItem = async (req, res) => {
     const doc = await GalleryItem.create({ image, caption, category })
     res.status(201).json(doc)
   } catch (e) {
-    res.status(500).json({ message: 'Server error' })
+    console.error('Create Item Error:', e);
+    res.status(500).json({ message: 'Server error: ' + e.message })
   }
 }
 
@@ -37,10 +38,15 @@ const bulkCreate = async (req, res) => {
   try {
     const items = Array.isArray(req.body.items) ? req.body.items : []
     if (!items.length) return res.status(400).json({ message: 'No items' })
+    
+    // Log batch size for debugging
+    console.log(`Processing bulk upload of ${items.length} items. Payload size approx: ${JSON.stringify(items).length} bytes`);
+
     const docs = await GalleryItem.insertMany(items)
     res.status(201).json(docs)
   } catch (e) {
-    res.status(500).json({ message: 'Server error' })
+    console.error('Bulk Create Error:', e);
+    res.status(500).json({ message: 'Server error: ' + e.message })
   }
 }
 
