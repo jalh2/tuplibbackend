@@ -26,6 +26,7 @@ const updateHome = async (req, res) => {
     if (doc) {
       if (payload.headerTitle !== undefined) doc.headerTitle = payload.headerTitle
       if (payload.logo !== undefined) doc.logo = payload.logo
+      if (payload.audio !== undefined) doc.audio = payload.audio
       if (payload.hero) {
         doc.hero.title = payload.hero.title ?? doc.hero.title
         doc.hero.subtitle = payload.hero.subtitle ?? doc.hero.subtitle

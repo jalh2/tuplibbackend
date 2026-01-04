@@ -3,6 +3,7 @@ const mongoose = require('mongoose')
 const homeSchema = new mongoose.Schema({
   headerTitle: { type: String, default: '' },
   logo: { type: String, default: '' }, // base64
+  audio: { type: String, default: '' }, // base64 audio
   hero: {
     title: { type: String, default: '' },
     subtitle: { type: String, default: '' },
