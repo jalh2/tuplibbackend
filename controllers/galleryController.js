@@ -13,10 +13,23 @@ const createItem = async (req, res) => {
 
 const listItems = async (req, res) => {
   try {
-    const items = await GalleryItem.find({}).sort({ createdAt: -1 })
-    res.json(items)
+    // Pagination to prevent large payload 500 errors
+    const page = parseInt(req.query.page) || 1;
+    const limit = parseInt(req.query.limit) || 20;
+    const skip = (page - 1) * limit;
+
+    const items = await GalleryItem.find({})
+        .sort({ createdAt: -1 })
+        .skip(skip)
+        .limit(limit);
+
+    // Optional: Return total count for frontend pagination
+    // const total = await GalleryItem.countDocuments({});
+
+    res.json(items);
   } catch (e) {
-    res.status(500).json({ message: 'Server error' })
+    console.error("Error fetching gallery items:", e);
+    res.status(500).json({ message: 'Server error: ' + e.message })
   }
 }
 
