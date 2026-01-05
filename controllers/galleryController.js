@@ -19,15 +19,21 @@ const listItems = async (req, res) => {
     const limit = parseInt(req.query.limit) || 20;
     const skip = (page - 1) * limit;
 
+    const total = await GalleryItem.countDocuments({});
     const items = await GalleryItem.find({})
         .sort({ createdAt: -1 })
         .skip(skip)
         .limit(limit);
 
-    // Optional: Return total count for frontend pagination
-    // const total = await GalleryItem.countDocuments({});
-
-    res.json(items);
+    res.json({
+        items,
+        pagination: {
+            total,
+            page,
+            limit,
+            pages: Math.ceil(total / limit)
+        }
+    });
   } catch (e) {
     console.error("Error fetching gallery items:", e);
     res.status(500).json({ message: 'Server error: ' + e.message })
